@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            font-family: 微軟正黑體;
+        }
+        textarea {
+            resize: none;
+        }
+
+        .correct {
+            color: green;
+            font-weight: bold;
+
+        }
+        .wrong {
+            color: red;
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+<body>
+<textarea name="" id="" cols="30" rows="10"></textarea>
+<button>點擊送出</button>
+<span class="correct">請輸入您的內容</span>
+<div>
+    <ul></ul>
+</div>
+</body>
+<script>
+    var text = document.querySelector('textarea');
+    var btn = document.querySelector('button');
+    var span = document.querySelector('span');
+    var div = document.querySelector('div').querySelector('ul');
+
+    (function () {
+        document.addEventListener('keydown', function (e) {
+            if (e.keyCode == '13' && e.ctrlKey) {
+                text.value += "\n";
+            } else if (e.keyCode == '13') {
+                e.preventDefault();
+                submit();
+            }
+        })
+        btn.addEventListener('click', submit)
+    })()
+
+
+    function submit() {
+        if (text.value !== '') {
+            span.className = 'correct';
+            span.innerHTML = '請輸入您的內容'
+            let li = document.createElement('li');
+            li.innerHTML = text.value.replace(/fuck|sex|creampie|^做愛$|/gi, '***') // g為全局 i為包含大小寫
+            text.value = '';
+            div.appendChild(li);
+        } else {
+            span.className = 'wrong';
+            span.innerHTML = '輸入內容不能為空'
+        }
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        // toString()改為字符串
+        var num = 18;
+        console.log(num.toString());
+        // String(XX)強制改為字串
+        var num1 = 18;
+        console.log(String(num1));
+
+        // parseInt(XXX)改為數字
+        var num2 = prompt('輸入後是字符，轉變為數字');
+        console.log(parseFloat(num2)); // console.log(parseInt(num2));
+        // Number(XXX)轉換
+        var num3 = '123';
+        console.log(Number(num3))
+
+        // 隱性轉換 加入運算及可轉換
+        console.log('20' - '10');
+
+        var age = prompt('輸入幾年出生');
+        alert('2021' - age);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

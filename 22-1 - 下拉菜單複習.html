@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+        }
+        a {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .nav {
+            position: relative;
+            width: 300px;
+            margin: 100px auto;
+            text-align: center;
+
+        }
+
+        .title {
+            width: 300px;
+            height: 50px;
+            border: 1px solid #cccccc;
+            display: inline-block;
+            line-height: 50px;
+        }
+
+        .title:hover {
+            background-color: #cccccc;
+            color: white;
+        }
+
+        .nav > ul {
+            position: absolute;
+            right: -2px;
+            top: 51px;
+            border: 1px solid #cccccc;
+            display: none;
+
+        }
+
+        .nav > ul > li {
+            height: 30px;
+            width: 300px;
+            line-height: 30px;
+
+        }
+
+        .nav > ul > li:hover {
+            background-color: #cccccc;
+            color: white;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="" class="title">主題</a>
+    <ul>
+        <li><a href="">幹你</a></li>
+        <li><a href="">國軍</a></li>
+        <li><a href="">浪費時間</a></li>
+    </ul>
+</div>
+
+<script>
+    var title = document.querySelector('.title');
+    var down = document.querySelector('ul');
+
+    console.log(down);
+
+    title.onmouseover = function () {
+        down.style.display = 'block';
+    }
+
+    down.onmouseover = function () {
+        this.style.display = 'block';
+    }
+
+    title.onmouseout = function () {
+        down.style.display = 'none';
+    }
+
+    down.onmouseout = function () {
+        this.style.display = 'none';
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

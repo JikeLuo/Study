@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // var star = '';
+        // for (var i = 0; i < 5; i++) {
+        //     star += 'S';
+        // }
+        // console.log(star)
+
+        var row = prompt('輸入行數')
+        var star = '';
+        for (var i = 0; i < row; i++) {
+            for (var j = 0; j <= i; j++) {
+                star += 'S';
+            }
+            star += '\n';
+        }
+            console.log(star);
+        var nine = '';
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= i; j++) {
+                nine += i + 'X' + j + '=' + (i * j) + '\t';
+            }
+            nine += '\n';
+        }
+        console.log(nine);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     *  3公里以下底價 40元
+     *  3公里後每一公里增加20元
+     *  塞車多加50元
+     *
+     * */
+
+    var taxi = (function () {
+        var start = 40;
+        var total = 0;
+        return {
+            normal: function (x) {
+                if (x < 3) {
+                    total = start;
+                } else {
+                    total = start + (x - 3) * 20;
+                }
+                return total;
+            },
+            trafficJam: function (flag) {
+                if (flag) {
+                    total += 50;
+                }
+                return total;
+            }
+        }
+    })();
+    // 執行normal函數後total值已經改變，所以可以加塞車錢
+    console.log(taxi.normal(1)); // 40
+    console.log(taxi.trafficJam(true)); // 90   塞車+50
+    console.log(taxi.trafficJam(true)); // 140  繼續塞車+50
+
+    console.log(taxi.normal(6)); // 100 重新更新x值 結果改變
+    console.log(taxi.trafficJam(false)); // 100 不塞車
+    console.log(taxi.trafficJam(true)); //  150 繼續塞車+50
+
+
+
+</script>
+</body>
+</html>

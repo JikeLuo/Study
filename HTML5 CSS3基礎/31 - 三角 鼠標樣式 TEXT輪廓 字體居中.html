@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1 {
+            position: relative;
+            width: 0;
+            height: 0;
+            border: 50px solid;
+            border-top-color: yellow;
+            border-left-color: green;
+            border-right-color: blue;
+            border-bottom-color: red;
+            margin: 200px auto;
+        }
+
+        .box2 {
+            position: absolute;
+            top: -90px;
+            left: -20px;
+            width: 0;
+            height: 0;
+            line-height: 0; /* 為了兼容性 */
+            font-size: 0; /* 為了兼容性 */
+            border: 20px solid transparent;
+            border-bottom-color: yellow;
+        }
+
+        .box3 {
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0px 0px 100px 50px ;
+            border-color: transparent transparent transparent red;
+        }
+
+        .box4 {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .cursor ul li {
+            font-size: 30px;
+            line-height: 40px;
+        }
+
+        input,
+        textarea {
+            outline: none; /* 把外框取消 */
+        }
+
+        textarea {
+            resize: none; /* 把右下放大給取消 */
+        }
+
+
+        .bug,
+        .bug1 {
+            border: 2px solid red;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="box1">
+    <span class="box2"></span>
+</div>
+
+
+<div class="box4">
+    <div class="box3"></div>
+</div>
+
+
+
+
+<!-- 鼠標的顯示樣式 -->
+<div class="cursor">
+    <ul>
+        <li>nothing 今天天氣晴，出大太陽了老爹</li>
+        <li style="cursor: default">default 今天天氣晴，出大太陽了老爹</li>
+        <li style="cursor: pointer">pointer 今天天氣晴，出大太陽了老爹</li>
+        <li style="cursor: move">move 今天天氣晴，出大太陽了老爹</li>
+        <li style="cursor: text">text 今天天氣晴，出大太陽了老爹</li>
+        <li style="cursor: not-allowed">not-allowed 今天天氣晴，出大太陽了老爹</li>
+    </ul>
+</div>
+
+<!-- 文字對齊樣式 -->
+<div>
+    <input type="text">
+    <textarea name="" id="" cols="30" rows="20"></textarea>
+</div>
+
+<img src="images/play.png" width="20%" style="vertical-align: top"> 這行文字要顯示在頂部 <br>
+<img src="images/play.png" width="20%" style="vertical-align: middle"> 這行文字要顯示在中間 <br>
+<img src="images/play.png" width="20%" style="vertical-align: baseline"> 這行文字要顯示在基礎線 <br>
+<img src="images/play.png" width="20%" style="vertical-align: bottom"> 這行文字要顯示在底部
+
+<div class="bug">
+    <img src="images/play.png" width="20%"> 這圖片接不到邊框 是BUG
+</div>
+<div class="bug1">
+    <img src="images/play.png" width="20%" style="vertical-align: middle"> 這圖片有設定文字垂直排序 沒BUG
+</div>
+
+
+</body>
+</html>

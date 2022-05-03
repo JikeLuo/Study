@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let map = new Map;
+    map.set('key1', '我是內容')
+    map.set('key2', ['台北', '花蓮', '台中'])
+    map.set('key3', function () {
+        console.log('今天天氣晴')
+    })
+
+    let key = {
+        name: 'key4',
+    }
+    map.set(key, '用對象匯入')
+
+    console.log(map)
+
+    // 長度
+    console.log(map.size)
+
+    // 刪除
+    map.delete(2)
+    console.log(map)
+
+    // 獲取
+    console.log(map.get('key1'))
+
+    // 遍歷
+    for (let v of map) {
+        console.log(v)
+    }
+
+    // 清除
+    map.clear();
+    console.log(map)
+
+
+
+
+
+
+</script>
+</body>
+</html>

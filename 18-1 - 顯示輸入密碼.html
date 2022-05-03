@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        .box {
+            position: relative;
+            margin: 100px auto;
+            width: 600px;
+            border-bottom: 1px solid #cccccc;
+            color: #999;
+        }
+
+        .tip {
+            display: inline-block;
+            position: absolute;
+            margin-left: 80px;
+            line-height: 30px;
+            color: #999;
+        }
+
+        .wrong {
+            color: red;
+        }
+
+        .text {
+            font-family: 微軟正黑體;
+            color: #999999;
+        }
+
+        .box input {
+            width: 300px;
+            height: 30px;
+            border: none;
+            outline: none;
+
+        }
+
+        .box img {
+            position: absolute;
+            width: 27px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <input class="text" style="text" value="請輸入帳號">
+
+</div>
+<div class="box">
+    <input class="pass" type="password">
+    <label for="">
+        <img class="img" src="images/eyes%20close.jpg" alt="">
+    </label>
+    <div class="tip">請輸入6-30位數的密碼</div>
+</div>
+
+
+
+
+
+    <script>
+        var img = document.querySelector('.img')
+        var pass = document.querySelector('.pass')
+        var text = document.querySelector('.text')
+        var tip = document.querySelector('.tip')
+
+        var flag = 0;
+        img.onclick = function () {
+                if (flag == 0) {
+                    img.src = 'images/eyes%20open.jpg';
+                    pass.type = 'text';
+                    flag = 1;
+                }
+                else {
+                    img.src = 'images/eyes%20close.jpg';
+                    pass.type = 'password';
+                    flag = 0;
+                }
+            }
+
+        pass.onblur = function () {
+            if (pass.value.length < 6 || pass.value.length > 30) {
+                tip.innerHTML = '輸入密碼的長度錯誤';
+                tip.style.color = 'red'
+            }
+            else {
+                tip.innerHTML = '密碼長度正確';
+                tip.style.color = '#999'
+
+
+            }
+        }
+
+        text.onfocus = function () {
+            this.value = '';
+            this.style.color = 'black';
+        }
+
+        text.onblur = function () {
+            if (text.value === '') {
+                this.value = '請輸入帳號'
+                this.style.color = '#999'
+            }
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .search {
+            display: flex;
+            justify-content: center;
+            width: 1000px;
+        }
+
+        button {
+            width: 100px;
+        }
+
+
+        table,
+        td {
+            text-align: center;
+            width: 400px;
+            height: 30px;
+
+            border: 1px solid #333;
+        }
+
+
+        thead,
+        tfoot {
+            height: 50px;
+            background-color: #333;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="search">
+    最低價格<input type="text" id="min">~
+    最高價格<input type="text" id="max">
+    <button id="search">搜尋</button>
+    用名字查找<input type="text" id="tag">
+    <button id="tag-search">商品名搜尋</button>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <td>index</td>
+        <td>product</td>
+        <td id="price">price</td>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+</body>
+
+<script>
+    var data = [{
+        index: 1,
+        product: "華碩電腦",
+        price: 11999,
+    }, {
+        index: 2,
+        product: "蘋果電腦",
+        price: 33999,
+    }, {
+        index: 3,
+        product: "HP電腦",
+        price: 22999,
+    }, {
+        index: 4,
+        product: "MSI電腦",
+        price: 42999,
+    }, {
+        index: 5,
+        product: "ACER電腦",
+        price: 2999,
+    }
+    ]
+
+
+    var tbody = document.querySelector('tbody')
+    var btn = document.querySelector('#search')
+    var max = document.querySelector('#max')
+    var min = document.querySelector('#min')
+    var tagBtn = document.querySelector('#tag-search')
+    var tag = document.querySelector('#tag')
+    newdata(data);
+
+
+    max.addEventListener('keydown', function (e) {
+        if (e.keyCode == 13) {
+            priceSearch();
+        }
+    })
+
+    min.addEventListener('keydown', function (e) {
+        if (e.keyCode == 13) {
+            priceSearch();
+        }
+    })
+
+    btn.addEventListener('click', function () {
+        priceSearch();
+    })
+
+    tag.addEventListener('keydown', function (e) {
+        if (e.keyCode == 13) {
+            tagSearch();
+        }
+    })
+
+    tagBtn.addEventListener('click', function () {
+        tagSearch.call();
+    })
+
+
+    function newdata(value) {
+        value.forEach(function (value) {
+            let tr = document.createElement('tr');
+            tbody.append(tr);
+            tr.innerHTML = "<td>" + value.index + "</td>" + "<td>" + value.product + "</td>" + "<td>" + value.price + "</td>";
+        })
+    }
+
+
+    function priceSearch() {
+        let newdatas = data.filter(function (value) {
+            return max.value > value.price && min.value < value.price;
+        })
+        tbody.innerHTML = '';
+        newdata(newdatas);
+
+    }
+
+    function tagSearch() {
+        let newdatas = data.filter(function (value) {
+            return tag.value === value.product;
+        })
+        tbody.innerHTML = '';
+        newdata(newdatas);
+    }
+
+
+</script>
+</html>

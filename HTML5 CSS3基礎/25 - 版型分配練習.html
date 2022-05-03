@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .top {
+            height: 40px;
+            background-color: lightgrey;
+            margin: 0px auto 10px;
+        }
+
+        .banner {
+            height: 100px;
+            width: 815px;
+            margin: 10px auto 0px;
+            background-color: lightgrey;
+        }
+
+        .box {
+            height: 500px;
+            width: 815px;
+            margin: 10px auto 0px;
+        }
+
+        .box-block {
+            height: 500px;
+            width: 200px;
+            margin-right: 5px;
+            float: left;
+        }
+
+        .box-block-2 {
+            height: 500px;
+            width: 200px;
+            float: left;
+        }
+
+        .box-block-top {
+            height: 100px;
+            width: 200px;
+            background-color: lightgrey;
+
+        }
+
+        .box-block-bottom {
+            height: 390px;
+            width: 200px;
+            margin-top: 10px;
+            background-color: lightgrey;
+
+        }
+
+        .footer {
+            height: 100px;
+            background-color: lightgrey;
+            margin: 10px auto 0px;
+        }
+
+        /* 清除浮動 */
+    /* 2.添加overflow */
+        .clearfix {
+            overflow: hidden;
+        }
+
+    /* 3.after 清除浮動 */
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        /*IE6 7 兼容的代碼*/
+        .clearfix {
+            *zoom: 1;
+        }
+
+    /* 4.雙阻擋浮動 */
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        /*IE6 7 兼容的代碼*/
+        .clearfix {
+            *zoom: 1;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="top"></div>
+<div class="banner"></div>
+<div class="box">
+    <ul>
+        <li class="box-block">
+            <div class="box-block-top">1</div>
+            <div class="box-block-bottom">1</div>
+        </li>
+        <li class="box-block">
+            <div class="box-block-top">2</div>
+            <div class="box-block-bottom">2</div>
+        </li>
+        <li class="box-block">
+            <div class="box-block-top">3</div>
+            <div class="box-block-bottom">3</div>
+        </li>
+        <li class="box-block-2">
+            <div class="box-block-top">4</div>
+            <div class="box-block-bottom">4</div>
+        </li>
+    </ul>
+
+</div>
+<div class="footer"></div>
+
+<div class="clearfix">
+    <div></div>
+    <div></div>
+    <div></div>
+    <!--    <div></div> 1.多加一條清除浮動-->
+</div>
+
+</body>
+</html>

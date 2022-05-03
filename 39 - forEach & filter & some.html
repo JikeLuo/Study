@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    console.log('============forEach==============')
+    // forEach 是迭代數組
+    var arr = [1, 2, 3];
+    var sum = 0;
+    // 不能直接給forEach命名
+    arr.forEach(function (value, index, array) {
+        sum += value;
+        return sum;
+    })
+    console.log(sum); // 6
+
+
+    console.log('============filter===============')
+
+    // filter可以進行過濾 找尋想要的數字
+    var arr1 = [11, 22, 66, 8415, 53]
+    var result = arr1.filter(function (value, index, array) {
+        return value >= 50;
+    })
+    console.log(result) // [66, 8515, 53]
+
+    // 找奇數
+    var arr2 = [12, 56, 33, 757, 5121]
+    var result1 = arr2.filter(function (value) {
+        return value % 2 == 1;
+    })
+    console.log(result1) // [33, 757, 5121]
+
+
+    console.log('============some=================')
+
+    var arr3 = ['sky', 'earth', 'ocean']
+    var result3 = arr3.some(function (value) {
+        return value === 'ocean';
+    })
+    console.log(result3) // true
+
+
+    console.log('============forEach和some的差別=================')
+    /**
+     *
+     * forEach 和 some 差別在於
+     * forEach會不斷迭代，就算找到該元素也會持續
+     * some會停止迭代，但必須return true
+     *
+     * */
+
+    var arr4 = ['black', 'green', 'red', 'yellow'];
+
+    arr4.forEach(function (value) {
+        if (value === 'black') {
+            console.log('找到該元素')
+            return true;
+        } else {
+            console.log('沒有')
+        }
+    })
+
+    console.log('----------------------------------------------')
+
+    arr4.some(function (value) {
+        if (value === 'black') {
+            console.log('找到該元素')
+
+            // 必須return true 不然會無法跳出迭代
+            return true;
+        } else {
+            console.log('沒有')
+        }
+    })
+
+
+
+
+</script>
+</html>

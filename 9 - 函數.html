@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var arr = [1, 52, 65, 86, 542, 56, 3, 40, 5, 1, 1000];
+        console.log(getMax(arr));
+        console.log(getSum(arr));
+
+        function getMax(arr) {
+            var max = arr[0];
+            for (var i = 0; i < arr.length; i++) {
+                if (max < arr[i]) {
+                    max = arr[i]
+                }
+            }
+            return max;
+        }
+
+        function getSum(arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i]
+            }
+            return sum;
+        }
+
+        // var num = parseInt(prompt('輸入數字'));
+        // var answer = getPrimeNumber(num);
+        // console.log(answer == undefined ? '' : num + '是質數')
+        function getPrimeNumber(num) {
+            for (var j = 2; j < num; j++) {
+                var flag = true;
+                if (num % j == 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag == true) {
+                return num;
+            }
+        }
+
+
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+
+        var arr1 = reverse([1, 2, 3, 4, 5, 6, 7, 8]);
+        console.log(arr1);
+
+
+        // 預解析
+        // 題型
+
+        f1();
+        console.log(c + '1');
+        console.log(b + '1');
+        console.log(a + '1');
+
+        function f1() {
+            var a = b = c = 9;
+            // 只定義 var a; (局部變量
+            // 後面 a = b = c = 9; (全局變量
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+
+        //
+        // function f1() {
+        //     var a;
+        //     a = b = c = 9;
+        //     console.log(a)
+        //     console.log(b)
+        //     console.log(c)
+        // }
+        //
+        // f1();
+        // console.log(c);
+        // console.log(b);
+        // console.log(a);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

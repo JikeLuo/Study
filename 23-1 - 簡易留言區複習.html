@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            resize: none;
+        }
+
+        div {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        button {
+            width: 60px;
+            height: 20px;
+
+        }
+
+        ul > li {
+            margin-top: 20px;
+            width: 100px;
+            height: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div>
+    <textarea name="" id="" cols="40" rows="10" placeholder="請輸入內容"></textarea>
+    <button>送出</button>
+
+    <ul>
+    </ul>
+</div>
+
+
+<script>
+    var type = document.querySelector('textarea');
+    var butt = document.querySelector('button');
+    var ul = document.querySelector('ul');
+
+
+    butt.onclick = function () {
+        if (type.value == '') {
+            alert('輸入不能為空')
+        }
+        else {
+            var createLi = document.createElement('li');
+            createLi.innerHTML = type.value;
+            ul.appendChild(createLi);
+        }
+        type.value = '';
+    }
+
+
+
+</script>
+
+</body>
+</html>

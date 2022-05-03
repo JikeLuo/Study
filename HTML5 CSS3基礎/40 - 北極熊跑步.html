@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background-color: #ccc;
+        }
+
+        .background2 {
+            height: 569px;
+            background: url("media/bg2.png") no-repeat;
+            animation: move1 80s steps(3600) infinite forwards
+        }
+        @keyframes move2 {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        .background1 {
+            position: relative;
+            z-index: 1;
+            top: 200px;
+            height: 355px;
+            background: url("media/bg1.png") no-repeat  transparent;
+            animation: move1 40s steps(1000) infinite forwards ;
+        }
+        @keyframes move1 {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        .bear {
+            position: absolute;
+            top: 200px;
+            z-index: 2;
+            width: 200px;
+            height: 100px;
+            background: url("media/bear.png") no-repeat;
+            animation: bear 1s steps(7) infinite, move 6s forwards;
+        }
+        @keyframes move {
+            0% {
+                left: 0;
+                transform: translateX(0);
+            }
+            100% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes bear {
+            0% {
+                background-position: 0, 0;
+            }
+            
+            100% {
+                background-position: 100% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="background2">
+    <div class="background1">
+        <div class="bear"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

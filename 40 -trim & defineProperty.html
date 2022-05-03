@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text">
+<button>點擊送出</button>
+
+</body>
+<script>
+
+    console.log('==========trim()==========')
+    /**
+     * trim()可修剪文字前後的空格
+     * */
+    var btn = document.querySelector('button')
+    var textTest = document.querySelector('input')
+
+    btn.addEventListener('click', function () {
+        let word = textTest.value.trim();
+        if (word == '') {
+            alert('請輸入搜尋結果')
+        } else {
+            console.log(word);
+        }
+    })
+
+    console.log('==========object.defineProperty==========')
+    /**
+     * Object.defineProperty(object, '新增的項目', {
+     *      value:
+     *      writable:       // 可否複寫
+     *      enumerable:     // 迭代是否顯現(隱私性
+     *      configurable:   // 可否刪除
+     *  })
+     *
+     *  delete object.test; // 可刪除某屬性
+     *
+     * */
+
+    var obj = {
+        id: 1,
+        name: '王大明',
+        address: '台灣總統府',
+    }
+
+    Object.defineProperty(obj, 'test', {
+        value: 'test value',
+        // 以下預設值為false
+        writable: false, // 可否複寫
+        enumerable: false, // 迭代是否顯現(隱私性
+        configurable: false, // 可否刪除
+    })
+
+    obj.test = 'writable test'; // 重寫 test
+    delete obj.test; // 刪除 address
+
+    console.log(obj)
+    console.log(Object.keys(obj))
+
+
+    console.log('==========object.keys(obj)==========')
+    /**
+     * object.keys(obj) 可迭代某集合的Key值
+     * */
+
+    var arr = ['a', 'b', 'c'];
+    console.log(Object.keys(arr)); // console: ['0', '1', '2']
+
+    var arr = {
+        100: 'a',
+        30: 'b',
+        7: 'c'
+    }
+    console.log(Object.keys(arr)); // console: ['7', '30', '100']
+
+</script>
+</html>

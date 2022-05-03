@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+
+        #test {
+            position: relative;
+            margin-top: 100px;
+        }
+
+        .div {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            height: 50px;
+            width: 300px;
+            font-size: 40px;
+            line-height: 50px;
+            margin-top: 20px;
+            border: 1px solid;
+            color: darkslategray;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<input type="text" name="" id="input">
+
+<div class="search">
+    <div class="div"></div>
+    <input type="text" name="" id="test">
+</div>
+
+
+<script>
+    var search = document.querySelector('#input');
+    var search2 = document.querySelector('#test');
+    var block = document.querySelector('.div');
+
+    document.addEventListener('keyup', function (e) {
+        if (e.keyCode === 109) {
+            search.focus();
+        }
+    })
+
+    document.addEventListener('keyup', function (e) {
+        if (search2.value !== '') {
+            block.style.display = 'block'
+            block.innerHTML = search2.value;
+        } else {
+            block.style.display = 'none'
+        }
+    })
+
+    search2.addEventListener('blur', function () {
+        block.style.display = 'none'
+    })
+    search2.addEventListener('focus', function () {
+        if (this.value !== '') {
+            block.style.display = 'block'
+        }
+    })
+
+
+</script>
+
+</body>
+</html>
