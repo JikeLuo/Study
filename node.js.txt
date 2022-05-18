@@ -1,5 +1,0 @@
-Terminal
-
-node -v (node 版本
-cd [path] (前往某個位置
-cd ../ (往上一層資料夾

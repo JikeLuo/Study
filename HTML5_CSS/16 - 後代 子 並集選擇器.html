@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /*後代選擇器*/
+        ol li {
+            color: darkslateblue;
+        }
+
+        ol li a {
+            color: yellow;
+        }
+
+        .mmm li a {
+            color: indianred;
+        }
+
+        /*子選擇器*/
+        .aaa > a {
+            color: pink;
+        }
+
+        .nav ul li a {
+            color: red;
+        }
+
+        .hot > a {
+            color: red;
+        }
+
+        /*並集選擇器*/
+        .news,
+        .olhot,
+        .brother li {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+
+<ol>
+    <li>今天天氣晴</li>
+    <li>今天天氣晴</li>
+    <li><a href="#">今天天氣晴</a></li>
+</ol>
+
+<ul class="mmm">
+    <li>aaaaaa</li>
+    <li>aaaaaa</li>
+    <li><a href="#">AAAAAAA</a></li>
+</ul>
+
+<ul>
+    <li><a href="#">今天天氣晴</a></li>
+    <li>我是貓</li>
+</ul>
+
+
+<p style="height: 100px;"></p>
+
+<div class="aaa">
+    <a href="#">子選擇器</a>
+    <p><a href="">後代選擇器</a></p>
+</div>
+
+<!--隨堂測驗-->
+<div class="nav">
+    <ul>
+        <li><a href="#">google</a></li>
+        <li><a href="#">google</a></li>
+    </ul>
+</div>
+
+<div class="hot">
+    <a href="#">肚臍</a>
+    <ul>
+        <li><a href="#">頭髮</a></li>
+        <li><a href="#">大腿</a></li>
+    </ul>
+</div>
+
+<div class="news">小名</div>
+<p>曉華</p>
+<span class="olhot">大中天</span>
+<ul class="brother">
+    <li>大哥</li>
+    <li>二哥</li>
+    <li>三哥</li>
+</ul>
+
+
+</body>
+</html>

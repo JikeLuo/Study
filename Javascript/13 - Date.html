@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+
+        console.log(countTime('2022-05-08 12:00:00'))
+
+        function countTime(time) {
+            var nowTimes = +new Date(); // 現在時間
+            var inputTime = +new Date(time); // 輸入的時間
+            var minusTime = inputTime - nowTimes; // 相減獲得剩餘時間
+            var day = parseInt(minusTime / 1000 / 60 / 60 / 24);
+            day = day > 10 ? day : '0' + day; // 小於10十位數加0
+            var hours = parseInt(minusTime / 1000 / 60 / 60 % 24);
+            hours = hours > 10 ? hours : '0' + hours;
+            var minus = parseInt(minusTime / 1000 / 60 % 60);
+            minus = minus > 10 ? minus : '0' + minus;
+            var second = parseInt(minusTime /1000 % 60);
+            second = second > 10 ? second : '0' + second;
+            return day + '天' + hours + '時' + minus + '分' + second + '秒';
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

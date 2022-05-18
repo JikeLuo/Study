@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            position: absolute;
+            left: auto;
+            top: 0px;
+        }
+        .a {
+            /* 決定優先層級 預設auto */
+            z-index: 1;
+            width: 200px;
+            height: 200px;
+
+            background-color: blue;
+        }
+
+        .b {
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 50px;
+            background-color: red;
+        }
+        .c {
+            width: 200px;
+            height: 200px;
+            top: 100px;
+            left: 100px;
+            background-color: green;
+        }
+
+        .center {
+            width: 500px;
+            height: 5000px;
+            background-color: skyblue;
+            margin: auto;
+        }
+        /* 定位在中央並margin中心寬度可保持 */
+        .position {
+            position: fixed;
+            top: 200px;
+            left: 50%;
+            height: 50px;
+            width: 30px;
+            background-color: #1f1e33;
+            margin-left: 250px;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            height: 200px;
+            width: 100px;
+            margin-top: 300px;
+            background-color: #ff7c2d;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="a box"></div>
+<div class="b box"></div>
+<div class="c box"></div>
+
+<div class="sticky"></div>
+
+<div class="position">123</div>
+<div class="center">123</div>
+
+</body>
+</html>

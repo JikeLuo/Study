@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            width: auto;
+            height: 700px;
+        }
+
+        div {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+<img src="images/果列奴X彼多/01.jpg" alt="">
+<div>早上好</div>
+
+<script>
+    var img = document.querySelector('img');
+
+    var div = document.querySelector('div');
+
+
+    var date = new Date();
+    var h = date.getHours();
+    console.log(date);
+    console.log(h);
+
+    if (h > 10) {
+        img.src = 'images/果列奴X彼多/' + h + '.jpg';
+        div.innerHTML = '瑟瑟保持健康';
+    } else {
+        img.src = 'images/果列奴X彼多/0' + h + '.jpg';
+        div.innerHTML = '我已經沒有精液了';
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-family: 微軟正黑體;
+        }
+
+        a {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .nav {
+            width: 750px;
+            height: 50px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .nav > li {
+            position: relative;
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            padding: 0px 50px;
+            margin: 0px 50px;
+        }
+
+
+        .nav > li:hover {
+            background-color: #ececec;
+        }
+
+        .nav > li > ul {
+            display: none;
+            position: absolute;
+            top: 51px;
+            right: 0;
+            width: 132px;
+            border: 1px solid #ececec;
+        }
+    </style>
+</head>
+<body>
+<ul class="nav">
+    <li>
+        <a href="#">登入</a>
+        <ul>
+            <li><a href="#">新用戶註冊</a></li>
+            <li><a href="#">Q&A</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">品項</a>
+        <ul>
+            <li><a href="#">國內直送</a></li>
+            <li><a href="#">海外</a></li>
+            <li><a href="#">合作店家</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">客服中心</a>
+        <ul>
+            <li><a href="#">連絡電話</a></li>
+            <li><a href="#">AI人工客服</a></li>
+            <li><a href="#">提供</a></li>
+        </ul>
+    </li>
+</ul>
+
+
+<script>
+    // .nav節點 和 子節點(children代表全部)
+    var nav = document.querySelector('.nav');
+    var down = nav.children;
+    console.log(down)
+
+    console.log(nav.lastElementChild)
+
+
+    for (var i = 0; i < down.length; i++) {
+        down[i].onmouseover = function () {
+            this.children[1].style.display = 'block';
+        }
+        down[i].onmouseout = function () {
+            // 獲得元素節點(不包含Enter)
+            this.lastElementChild.style.display = 'none';
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

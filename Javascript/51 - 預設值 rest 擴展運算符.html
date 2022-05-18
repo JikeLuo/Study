@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+    console.log('========== 函數設初始值 ==========')
+
+    function add(a, b, c = 1) {
+        return a + b + c;
+    }
+
+    console.log(add(10, 20));
+
+    console.log('------------- 與解構附值結合 ------------')
+
+    function person({name, age, address="XXX city"}) {
+        console.log(name)
+        console.log(age)
+        console.log(address)
+    }
+
+    person({
+        name: 'name',
+        age: '18+',
+        address: 'XXXXX@xxxx.yyy.zz'
+    })
+
+
+    console.log('========== rest 1 ==========')
+
+    /**
+     * ES5求參數的方法 參數為對象 Object
+     * */
+    function arg() {
+        console.log(arguments)
+    }
+
+    arg('lolita', 'whale', 'horse')
+
+    /**
+     * rest求參數的方法 為數組  Array(0)
+     * */
+    function args(...sss) {
+        console.log(sss)
+    }
+
+    args('lolita', 'whale', 'horse')
+
+    console.log('------------ rest 2 ------------')
+
+    function num(a, b, c, ...nums) {
+        console.log(a)
+        console.log(b)
+        console.log(c)
+        console.log(nums)
+    }
+
+    num(1, 2, 3, 4, 5, 6)
+
+    console.log('========== 擴展運算符 ==========')
+
+    let anime = ['進擊的巨人', '鏈鋸人', '海賊王']
+
+    function animeList() {
+        console.log(arguments);
+    }
+    /**
+     * 不用... 是對象
+     * 用... 是數組
+     * */
+    animeList(anime);
+    animeList(...anime);
+
+    console.log('---------- 合併 ----------')
+    // 1. 數組的合併
+    const chainsawman1 = ['Denji', 'Akito'];
+    const chainsawman2 = ['Makima', 'Kobeni'];
+
+    const chainsawmanArr0 = chainsawman1.concat(chainsawman2) // concat 連接
+    const chainsawmanArr = [...chainsawman1, ...chainsawman2]
+    console.log(chainsawmanArr0)
+    console.log(chainsawmanArr)
+
+    console.log('---------- 複製 ----------')
+    // 2. 數組的複製
+    const naruto = ['naruto', 'sasuke']
+    const character = [...naruto]
+    console.log(character)
+
+    console.log('---------- 轉換真數組 ----------')
+    // 3. 偽數組轉化為真數組
+    const divs = document.querySelectorAll('div');
+
+    // 為對象
+    console.log(divs)
+
+    // 為數組
+    const divArr = [...divs]
+    console.log(divArr)
+
+    console.log('---------- test ----------')
+
+    function multiply(multiplier, ...theArgs) {
+        // map 會遍歷每個數組並計算
+        return theArgs.map(function(element) {
+            return multiplier * element;
+        });
+    }
+
+    var arr = multiply(2, 1, 2, 3);
+    console.log(arr); // [2, 4, 6]
+
+
+</script>
+
+</body>
+</html>

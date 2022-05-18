@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ellipsis {
+            height: 200px;
+            width: 100px;
+            background-color: skyblue;
+            white-space: nowrap; /* 不自動換行 normal:自動換行 */
+            overflow: hidden; /* 隱藏溢出的文字 */
+            text-overflow: ellipsis; /* 溢出的文字: 省略號 */
+            margin-bottom: 10px;
+        }
+
+        .webkit {
+            height: 40px; /* 調整框框高度 */
+            width: 100px;
+            background-color: skyblue;
+            overflow: hidden; /* 讓多餘的顯示省略號 */
+            text-overflow: ellipsis;
+            display: -webkit-box; /* 彈性伸縮盒子顯示 */
+            -webkit-line-clamp: 2; /* 限制顯示的行數 */
+            -webkit-box-orient: vertical; /* 行內的排列方式 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="ellipsis">我甚麼也無法回答，因為我只是一隻藪貓</div>
+
+<div class="webkit">我甚麼也無法回答，因為我只是一隻藪貓</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+Terminal
+
+node -v (node 版本
+cd [path] (前往某個位置
+cd ../ (往上一層資料夾
+
+Dependencies 	( 開發上線都會用到
+devDependencies	( 只有開發會用到
+
+
+npm init -y ( 創建package.json 紀錄npm的包訊息
+npm install / i packge
+npm uninstall packge
+npm i package -D ( 加入到 devDependencies 節點
+npm install / i packge -g ( 下載到全局
+
+
+express
+memont ( date
+i5ting_toc ( md to HTML
+
+throw new Error('error message') ( 拋出一個自定義錯誤
+try {
+  // attempt to execute this code ( 第一個執行
+} catch (exception) {
+  // this code handles exceptions ( try無法解決則執行
+} finally {
+  // this code always gets executed ( 必定會執行 通常用來停止代碼
+}
+
+PK ( primary key
+NN ( not null
+UQ ( unique
+AI ( auto increment

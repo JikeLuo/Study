@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fetch 發送 Ajax 請求</title>
+</head>
+<body>
+<button>fetch</button>
+<script>
+    const btn = document.querySelector('button');
+
+    btn.onclick = function () {
+        // fetch get請求 並不包含body 屬性
+        fetch('http://127.0.0.1:8000/server?level=200&id=500', {
+            method: 'POST',
+            headers: {
+                vip: 'red'
+            },
+            body: 'username=admin',
+        }).then(response => {
+            // response 是一般數據
+            // return response.text();
+            // response 是JSON數據
+            return response.json();
+        }).then(response => {
+            console.log(response)
+        })
+
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>DIV的節點
+    <a>div的子節點</a>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+<span>span的節點</span>
+
+
+<script>
+    var div = document.querySelector('div');
+    var child = document.querySelector('a');
+    var ul = document.querySelector('ul');
+    var li = document.querySelectorAll('li');
+
+    // 父節點 (最近的父節點)
+    console.log(child.parentNode);
+
+    // 子節點
+    console.log(ul.childNodes); // 包含ENTER
+    console.log(ul.childNodes[1].nodeType); // [位置].節點類型
+    console.log(ul.children); // 常用 不算ENTER的全部
+    // 包含ENTER
+    console.log(ul.firstChild);
+    console.log(ul.lastChild);
+    // 不包含ENTER
+    console.log(ul.firstElementChild);
+    console.log(ul.lastElementChild);
+
+    console.log('-------------兄弟節點分隔線--------------------')
+
+    // 1.包含ENTER
+    console.log(div.nextSibling);
+    console.log(div.previousSibling);
+
+    // 2.直接下面節點
+    console.log(div.nextElementSibling);
+    console.log(div.previousElementSibling);
+
+</script>
+
+</body>
+</html>

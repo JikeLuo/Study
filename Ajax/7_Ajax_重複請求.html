@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>重複數據</button>
+<script>
+    const btn = document.querySelector('button');
+    // xhr 命名在外
+    let x = null;
+    let flag = false;
+
+    btn.onclick = function () {
+        if (flag) x.abort();
+        flag = true;
+        x = new XMLHttpRequest();
+        x.open('GET', 'http://127.0.0.1:8000/delay')
+        x.send();
+        x.onreadystatechange = function () {
+            if (x.readyState === 4) {
+                console.log(x.response);
+                flag = false;
+            }
+
+
+
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

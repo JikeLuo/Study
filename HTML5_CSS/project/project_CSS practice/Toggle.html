@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Franklin Gothic Medium";
+        }
+
+
+        input[type="checkbox"].toggle {
+            opacity: 0;
+        }
+
+        input[type="checkbox"].toggle + label {
+            position: absolute;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="checkbox"].toggle + label:before {
+            display: flex;
+            justify-content: right;
+            box-sizing: border-box;
+            padding-right: 2.5em;
+            color: white;
+            align-items: center;
+            content: "off";
+            font-size: .5em;
+            width: 10em;
+            height: 4em;
+            border-radius: 2em;
+            background-color: rgb(234, 234, 234);
+            cursor: pointer;
+            transition: background-color 400ms ease-in-out;
+        }
+
+        input[type="checkbox"].toggle + label:after {
+            content: "";
+            position: absolute;
+            left: .2em;
+            width: 1.8em;
+            height: 1.8em;
+            border-radius: 1em;
+            background-color: white;
+            cursor: pointer;
+            transition: transform 400ms ease-in-out;
+        }
+
+        input[type="checkbox"].toggle:checked + label:before {
+            justify-content: left;
+            padding-left: 2.5em;
+            content: "on";
+            background-color: rgb(156, 234, 133);
+            transition: background-color 400ms ease-in-out;
+        }
+
+        input[type="checkbox"].toggle:checked + label:after {
+            transform: translateX(2.8em);
+            background-color: white;
+            cursor: pointer;
+            transition: transform 400ms ease-in-out;
+        }
+
+
+    </style>
+</head>
+<body>
+<input type="checkbox" id="toggle" class="toggle">
+<label for="toggle" class="label"></label>
+<img src="" alt="">
+
+</body>
+
+</html>

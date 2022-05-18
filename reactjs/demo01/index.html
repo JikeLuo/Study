@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root"></div>
+</body>
+
+<!-- 匯入 react 順序要注意 -->
+<script src="./node_modules/react/umd/react.development.js"></script>
+<script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+<script>
+    // 創建 react 元素 ('名稱', '參數', '子節點')
+    const title = React.createElement('h1',
+        null,
+        'Hello React',
+        React.createElement('h2', null, '第二個')
+    );
+    // render react element ('element', 'where?')
+    ReactDOM.render(title, document.getElementById('root'))
+</script>
+</html>

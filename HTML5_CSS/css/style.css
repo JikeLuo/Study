@@ -1,0 +1,24 @@
+.less {
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+}
+.b {
+  width: 20px;
+  height: 30px;
+  color: skyblue;
+}
+.b .c {
+  border: none;
+}
+.d {
+  border: none;
+}
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  box-shadow: rgba(0 0 0 0.2);
+  text-shadow: rgba(0 0 0 0.2);
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /* child不考慮標籤屬性 可選擇第一和最後 也可輸入文法 */
+        .top li:first-child {
+            background-color: skyblue;
+        }
+
+        .top li:last-child {
+            background-color: skyblue;
+        }
+
+        .top li:nth-child(3n) {
+            background-color: green;
+        }
+
+        /* even偶數 odd奇數 */
+        .nav li:nth-child(odd) {
+            background-color: lightgray;
+        }
+        .nav li:nth-child(even) {
+            background-color: palevioletred;
+        }
+
+        /* type考慮屬性進行排序 */
+        .body li:nth-of-type(-n+4) {
+            background-color: yellowgreen;
+        }
+        /* child不考慮屬性進行排序 */
+        .body li:nth-child(n+10) {
+            background-color: mediumpurple;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="top">
+    <li>我的懶覺有1公分長</li>
+    <li>我的懶覺有2公分長</li>
+    <li>我的懶覺有3公分長</li>
+    <li>我的懶覺有4公分長</li>
+    <li>我的懶覺有5公分長</li>
+    <li>我的懶覺有6公分長</li>
+    <li>我的懶覺有7公分長</li>
+    <li>我的懶覺有8公分長</li>
+    <li>我的懶覺有9公分長</li>
+    <li>我的懶覺有10公分長</li>
+</ul>
+<ul class="nav">
+    <li>我的眼球半徑有1公分</li>
+    <li>我的眼球半徑有2公分</li>
+    <li>我的眼球半徑有3公分</li>
+    <li>我的眼球半徑有4公分</li>
+    <li>我的眼球半徑有5公分</li>
+    <li>我的眼球半徑有6公分</li>
+    <li>我的眼球半徑有7公分</li>
+    <li>我的眼球半徑有8公分</li>
+    <li>我的眼球半徑有9公分</li>
+    <li>我的眼球半徑有10公分</li>
+</ul>
+
+<ul class="body">
+    <a href="#">我沒睡</a>
+    <li>我已經睡了1小時了</li>
+    <a href="#">我沒睡</a>
+    <li>我已經睡了2小時了</li>
+    <a href="#">我沒睡</a>
+    <li>我已經睡了3小時了</li>
+    <a href="#">我沒睡</a>
+    <li>我已經睡了4小時了</li>
+    <li>我已經睡了5小時了</li>
+    <li>我已經睡了6小時了</li>
+    <li>我已經睡了7小時了</li>
+    <li>我已經睡了8小時了</li>
+    <li>我已經睡了9小時了</li>
+    <li>我已經睡了10小時了</li>
+</ul>
+
+</body>
+</html>

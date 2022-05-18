@@ -1,0 +1,37 @@
+@color: skyblue;
+
+.less {
+  width: 100px;
+  height: 100px;
+  background-color: @color;
+}
+
+// 像是 function一樣 不會出現在css 要啟用才出現 也能放變數
+.a(@w, @h) {
+  width: @w;
+  height: @h;
+  color: @color;
+}
+
+.b {
+  .a(20px, 30px);
+  .c {
+    border: none;
+  }
+}
+
+// 使用 .b 裡的 .c
+.d {
+  .b .c;
+}
+
+.arg(@r: 0, @g: 0, @b: 0, @a: 0) {
+  box-shadow: rgba(@arguments);
+  text-shadow: rgba(@arguments);
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  .arg(0;0;0;.2)
+}

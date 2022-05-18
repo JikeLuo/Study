@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="nav">
+    <li>Sky</li>
+    <li>Ocean</li>
+    <li>Earth</li>
+    <li>Space</li>
+</ul>
+<ul class="nav1">
+    <li>Sky</li>
+    <li>Ocean</li>
+    <li>Earth</li>
+    <li>Space</li>
+</ul>
+
+<script>
+    console.log('==========closure==========')
+
+    function Outter() {
+        var x = 10;
+
+        return function () {
+            console.log(x)
+        }
+    }
+
+    var fn = Outter();
+    fn();
+
+    console.log('-------------網路上的問題----------------')
+    /** 分析 :
+     *
+     *  varGlobal = 'x'
+     *  函數outer()啟動，'a'附值給paramOuter
+     *  varOuter = 'y'
+     *  return inner，跳出函數outer
+     *  outer() 附值給 func
+     *  func()啟動 = inner()被啟動
+     *  'b' 附值給 paramInner
+     *  varInner = 'z'
+     *  輸出...
+     *
+     * */
+    const varGlobal = 'x'
+
+    function outer(paramOuter) {
+        const varOuter = 'y'
+
+        function inner(paramInner) {
+            const varInner = 'z'
+            //print
+            console.log(varGlobal) // x
+            console.log(varOuter) // y
+            console.log(varInner) // z
+            console.log(paramOuter) // a
+            console.log(paramInner) // b
+        }
+
+        return inner
+    }
+
+    const func = outer('a')
+    func('b')
+
+
+    console.log('-----------點擊事件---------------')
+
+    var list = document.querySelector('.nav').querySelectorAll('li')
+    for (var i = 0; i < list.length; i++) {
+        list[i].index = i;
+        list[i].addEventListener('click', function () {
+            console.log(this.index)
+        })
+    }
+
+    console.log('-----用閉包(立即執行函數)創造事件-----')
+    /**
+     *  for()為同步任務，setTimeout()為非同步任務
+     *  for執行完 i=4 再執行setTimeout 但沒有list1[4] 所以錯誤
+     *
+     *  利用立即執行函數可以解決這問題
+     * */
+    var list1 = document.querySelector('.nav1').querySelectorAll('li')
+    for (var i = 0; i < list.length; i++) {
+        (function (i) {
+            setTimeout(function () {
+                console.log(list1[i].innerHTML)
+            },1000)
+        })(i)
+    }
+
+
+    console.log('-----閉包練習題-----')
+
+    var name = 'Window FXXker';
+    var obj = {
+        name: 'Nana',
+        myName: function () {
+            return function () {
+                return this.name;
+            }
+        }
+    }
+
+    console.log(obj.myName()());
+    /** 這句話等於:
+     *  var f = function () {
+     *    return this.name;
+     *  }
+     *  f();
+     *
+     *  this 指向立即執行函數
+     *  立即執行函數指向Window
+     *  Window.name = 'Window FXXker';
+     * */
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 微軟正黑體;
+        }
+        a {
+            text-decoration: none;
+        }
+
+
+        table {
+            margin: 100px auto;
+        }
+
+        thead > tr {
+            height: 50px;
+        }
+
+        thead > tr > td {
+            border: 1px;
+            background-color: #cccccc;
+            width: 120px;
+            text-align: center;
+            line-height: 30px;
+            color: black;
+        }
+
+        tbody > tr > td {
+            text-align: center;
+            line-height: 30px;
+            height: 30px;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+
+<table cellspacing="0">
+    <thead>
+    <tr>
+        <td>姓名</td>
+        <td>科目</td>
+        <td>分數</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+
+<script>
+
+    // 1. 用數組設定對象數據
+    var data = [{
+        name: '甘翰荃',
+        subject: 'Java',
+        score: '85',
+    }, {
+        name: '李昱謙',
+        subject: '交通設計',
+        score: '99',
+    }, {
+        name: '張智評',
+        subject: 'UX設計',
+        score: '65',
+    }, {
+        name: '孫禎祥',
+        subject: '動畫設計',
+        score: '77',
+    }, {
+        name: '張三',
+        subject: '視覺設計',
+        score: '25',
+    }, {
+        name: '王曉華',
+        subject: '色彩原理與設計',
+        score: '55',
+    }, ]
+
+    var tBody = document.querySelector('tbody');
+
+    // 2. 先循環tr的數量
+    for (var i = 0; i < data.length; i++) {
+        var createTr = document.createElement('tr');
+        tBody.appendChild(createTr);
+
+        // 3. 循環數組對象的資料 data[i][k]
+        // {   name: '王曉華',
+        //     subject: '色彩原理與設計',
+        //     score: '55' },
+        // 出來為 王曉華
+        //       色彩原理與設計
+        //       55
+        //  加入td裡
+        for (var k in data[i]) {
+            var createTd = document.createElement('td');
+            createTd.innerHTML = data[i][k];
+            tBody.children[i].appendChild(createTd);
+
+        }
+
+        // 4. 新增刪除 並加入td
+        var createDel = document.createElement('td');
+        createDel.innerHTML = '<a href="javascript:;">刪除</a>'
+        tBody.children[i].appendChild(createDel);
+    }
+
+    // 5. 設置點擊事件
+    var del = document.querySelectorAll('a');
+
+    for (var i = 0; i < data.length; i++) {
+        del[i].onclick = function () {
+            tBody.removeChild(this.parentNode.parentNode);
+        }
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

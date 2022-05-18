@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /* 1.屬性選擇器[屬性值="類型"] */
+        input[type="password"] {
+            background-color: skyblue;
+        }
+        /* 2.屬性值前端(第一個開始相同數值)相同 可選擇 */
+        div[class^="icon"] {
+            color: skyblue;
+        }
+
+        /* 3.屬性(從最後一個開始算)數值相同 可選擇 */
+        div[class$="second"] {
+            color: green;
+        }
+
+        /* 4.屬性(不管前後)有出現相同數值 可選擇*/
+        div[class*="ig"] {
+            color: blue;
+        }
+
+        div.piig { /* 屬性權重為10 + 前面div為1 超越class的10 */
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text">
+<input type="password">
+
+<div class="icon-dick">測試測試我能不能變色</div>
+<div class="icon-sex">測試測試我能不能變色</div>
+<div class="icox-test-">我應該是不會變色拉</div>
+
+<div class="a-plussecond">測試測試我能不能變色</div>
+<div class="b-plus-second">測試測試我能不能變色</div>
+<div class="b-plus-second">測試測試我能不能變色</div>
+<div class="b-plus-seconds">我應該是不會變色拉</div>
+<div class="c-plus-zsecond">測試測試我能不能變色</div>
+<div class="c-plus-second-second">測試測試我能不能變色</div>
+
+<div class="pig">測試測試我能不能變色</div>
+<div class="pag">我應該是不會變色拉</div>
+<div class="piig">測試測試我能不能變色</div>
+<div class="pigg">測試測試我能不能變色</div>
+<div class="pigs">測試測試我能不能變色</div>
+
+</body>
+</html>

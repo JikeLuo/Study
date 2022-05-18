@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .father {
+            display: flex;
+            /* 調整主軸方向 row column */
+            /*flex-direction: row;*/
+            /* 換行 */
+            /*flex-wrap: wrap;*/
+            /* 複合屬性 */
+            flex-flow: column wrap;
+
+            /* 排放方式 */
+            justify-content: space-between;
+
+            /* 副軸方向 */
+            align-items: flex-start;
+            /* 副軸排放 */
+            align-content: flex-start;
+
+            width: 800px;
+            height: 500px;
+            background-color: skyblue;
+        }
+
+        .father span {
+            width: 200px;
+            height: 100px;
+            background-color: purple;
+            margin: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="father">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+</div>
+</body>
+</html>

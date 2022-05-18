@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log('========== class ==========')
+    class Phone {
+        constructor(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        call() {
+            console.log('call the phone')
+        }
+    }
+
+    // 子類繼承 class son extend father
+    class SmartPhone extends Phone {
+        constructor(name, price, size) {
+            // super(value, value....) 屬性繼承
+            super(name, price);
+            this.size = size;
+        }
+
+        playGame() {
+            console.log('play game')
+        }
+    }
+
+    let p = new SmartPhone('iPhine', '30,000', '5.7inch');
+    console.log(p)
+    p.call();
+    p.playGame();
+
+    console.log('----------- getter setter --------------')
+    /*  getter 取的特定值的方法
+      setter 存取值的方法 */
+
+    let totals = 0;
+
+    class money {
+        set save(save) {
+            totals += save;
+        }
+
+        get search() {
+            return totals;
+        }
+    }
+
+    let m = new money();
+
+    m.save = 100;
+    m.save = 100;
+    console.log(m.search)
+
+</script>
+
+</body>
+</html>

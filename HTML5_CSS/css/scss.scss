@@ -1,0 +1,223 @@
+@import "normalize";
+
+$basic-color: #cccccc;
+
+@mixin basic-body {
+  padding: 0;
+  margin: 0;
+}
+
+
+/* @mixin 函數的參數 */
+@mixin color($bgc, $color, $lighten, $darken) {
+  background-color: $bgc;
+  color: $color;
+  a {
+    background-color: lighten($lighten, 30%);
+    color: darken($darken, 20%);
+  }
+}
+
+
+body {
+  @include basic-body;
+  background-color: $basic-color;
+}
+
+
+/* 嵌套屬性 */
+.nav {
+  color: red;
+
+  a {
+    &:hover {
+      color: blue;
+    }
+
+    &:after {
+      content: '';
+    }
+  }
+
+  /* .nav .nav-sub{} */
+  & &-sub {
+    /* font: {} 可簡化font前綴 */
+    font: {
+      style: italic;
+      size: 30px;
+      family: "Adobe 黑体 Std R";
+    }
+  }
+}
+
+
+/* @include 使用函數 */
+.box {
+  @include color(#fff, red, blue, yellow);
+}
+
+/* 物件的繼承 */
+// .info-father info-son { attribute }
+.info-father {
+  padding: 0;
+  margin: 0;
+}
+
+/* 數字處理 */
+.info-son {
+  @extend .info-father;
+  font-size: 20px * 2;
+
+  /* abs()絕對值 */
+  z-index: abs(-5.2);
+  /* round()四捨五入 */
+  padding-top: round(2.4px);
+  /* floor()無條件捨去 */
+  padding-left: floor(2.9px);
+  /* ceil()無條件進位 */
+  padding-right: ceil(2.1px);
+  /* percentage()百分比 */
+  margin-bottom: percentage(20px / 100px);
+}
+
+$string: "GG Der inin Der";
+.string {
+  /* 全大寫 */
+  width: to-upper-case($string);
+  /* 全小寫 */
+  height: to-lower-case($string);
+  /* 字串長度 */
+  font-size: str-length($string) + px;
+  /* 相符第一個字串位置  */
+  font-style: str-index($string, "Der") + rem;
+  /* 插入字串 */
+  font-family: str-insert($string, " HowIn.html", 11);
+}
+
+$new-color: blue;
+$hsl-color: hsl(0, 100%, 50%);
+$new-hsl: hsl(120, 50%, 20%);
+.color {
+  /* 顏色更亮 */
+  padding: lighten($new-color, 30%);
+  /* 顏色更暗 */
+  margin: darken($new-color, 30%);
+
+  /* hsl 屬性調整色相 角度 */
+  height: adjust-hue($hsl-color, 90deg);
+  /* hsl 提高飽和度 */
+  width: saturate($new-hsl, 30%);
+  /* hsl 降低飽和度 */
+  white-space: desaturate($new-hsl, 30%);
+}
+
+$hsla: hsla(150, 50%, 50%, 0.3);
+.hsla {
+  /* 降低不透明度 0.6 */
+  width: opacify($hsla, 0.6);
+  /* 增加不透明度 0.2 */
+  height: transparentize($hsla, 0.1);
+}
+
+@mixin border($px, $solid, $color) {
+  // join() 把 "兩個" 屬性合併 comma可增加逗號
+  border: join($px, $solid $color, comma);
+}
+
+$str: 10, 22, 30, 40, px;
+.border {
+  @include border(1px, solid, red);
+  // length()
+  // nth()
+  // index()
+  // append()
+  width: nth($str, 5);
+}
+
+
+/* map $obj: ( key:value, key:value ) */
+$obj: (aka: red, aoi: blue);
+.map {
+
+  // map-get($, keys) 獲得value值
+  color: map-get($obj, aka);
+
+  // map-keys($) 遍歷整個key
+  background-color: map-keys($obj);
+
+  // map-values($) 遍歷整個value
+  padding-bottom: map-values($obj);
+
+  // map-has-key($, keys) key值是否有
+  padding-right: map-has-key($obj, aka);
+
+  // map-merge($, attribute)
+  $new-obj: map-merge($obj, (midori: green));
+  padding-left: map-keys($new-obj);
+
+  // map-remove($, attribute)
+  $new2-obj: map-remove($new-obj, aka, aoi);
+  padding-top: map-keys($new2-obj);
+
+
+}
+
+
+/* # {} interpolation */
+$info: "info";
+$border: "border";
+.alert-#{$info} {
+  #{$border}-color: red;
+}
+
+
+/* @if ($a > $b) { color: red } */
+$a: 1;
+$b: 2;
+.if {
+  @if ($a > $b) {
+    color: red;
+  }
+  background-color: skyblue;
+}
+
+
+/* @for ($i from 1 through $cols) */
+// to 1 2 3 次 through 1 2 3 4 次
+// $i 可自行定義
+$cols: 4;
+@for $i from 1 to $cols {
+  cols-#{$i} {
+    width: (100% / $cols * $i);
+  }
+}
+
+
+/* @each $item in $list */
+// $item 為遍歷 $list資料 每筆名稱 可自行定義
+$num: 1, 2, 3, 4;
+@each $item in $num {
+  .num-#{$item} {
+    background-image: url(../images/#{$item});
+  }
+}
+
+
+/* @while () {} */
+$i: 3;
+@while ($i > 0) {
+  a-#{$i} {
+    padding: 0;
+  }
+  $i: $i - 1;
+}
+
+
+/* function  () */
+$fun: (aoi: blue, aka: red, midori: green);
+@function func($key) {
+  @return map-get($fun, $key)
+}
+.func {
+  color: func(aoi)
+}

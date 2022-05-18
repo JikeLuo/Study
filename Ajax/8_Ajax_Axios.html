@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+<button>GET</button>
+<button>POST</button>
+<button>AJAX</button>
+<script>
+    const btn = document.querySelectorAll('button');
+    axios.defaults.baseUrl = 'http://127.0.0.1:8000'
+
+    btn[0].onclick = function () {
+        // axios get 請求
+        // axios.get(url,{config})
+        // url, 其餘請求
+        axios.post('/delay', {
+            // URL 參數
+            params: {
+                id: 20,
+                name: 200,
+            },
+            // header 訊息
+            headers: {
+                user: 'user',
+                name: 'red'
+            }
+        })
+            .then((value) => {
+                console.log(value)
+            })
+    }
+
+    // post 請求
+    // axios.post(url,{data},{config})
+    // url, 請求體, 其餘請求
+    btn[1].onclick = function () {
+
+        axios.post('/axios', {
+                username: 'admin',
+                password: 'admin'
+            },{
+            params: {
+                id: 1000,
+                vip: 200
+            },
+            headers: {
+                name: 'baha',
+                id: 2212
+            }
+        })
+            .then((response) => {
+                console.log(response)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    // axios 通用方法
+    // axios({method, url, config})
+    btn[2].onclick = function () {
+        axios({
+            method: 'POST',
+            url: '/axios',
+            params: {
+                id: 4434,
+                level: 20
+            },
+            headers: {
+                a: 300,
+                b: 60
+            },
+            data: {
+                username: 'admin',
+                password: 'admin'
+            }
+
+        }).then((response) => {
+            console.log(response)
+        })
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+@charset "UTF-8";
+/*!
+* 這段很重要
+*/
+/* 寫在最上面 */
+html {
+  font-size: 50px; }
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 21.3333333333px; } }
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 24px; } }
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 25px; } }
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 25.6px; } }
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 26.6666666667px; } }
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 27.6px; } }
+@media screen and (min-width: 424px) {
+  html {
+    font-size: 28.2666666667px; } }
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 32px; } }
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 36px; } }
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 48px; } }
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 50px; } }
+/* @mixin 函數的參數 */
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #cccccc; }
+
+/* 嵌套屬性 */
+.nav {
+  color: red;
+  /* .nav .nav-sub{} */ }
+  .nav a:hover {
+    color: blue; }
+  .nav a:after {
+    content: ''; }
+  .nav .nav-sub {
+    /* font: {} 可簡化font前綴 */
+    font-style: italic;
+    font-size: 30px;
+    font-family: "Adobe 黑体 Std R"; }
+
+/* @include 使用函數 */
+.box {
+  background-color: #fff;
+  color: red; }
+  .box a {
+    background-color: #9999ff;
+    color: #999900; }
+
+/* 物件的繼承 */
+.info-father, .info-son {
+  padding: 0;
+  margin: 0; }
+
+/* 數字處理 */
+.info-son {
+  font-size: 40px;
+  /* abs()絕對值 */
+  z-index: 5.2;
+  /* round()四捨五入 */
+  padding-top: 2px;
+  /* floor()無條件捨去 */
+  padding-left: 2px;
+  /* ceil()無條件進位 */
+  padding-right: 3px;
+  /* percentage()百分比 */
+  margin-bottom: 20%; }
+
+.string {
+  /* 全大寫 */
+  width: "GG DER ININ DER";
+  /* 全小寫 */
+  height: "gg der inin der";
+  /* 字串長度 */
+  font-size: 15px;
+  /* 相符第一個字串位置  */
+  font-style: 4rem;
+  /* 插入字串 */
+  font-family: "GG Der ini HowIn.htmln Der"; }
+
+.color {
+  /* 顏色更亮 */
+  padding: #9999ff;
+  /* 顏色更暗 */
+  margin: #000066;
+  /* hsl 屬性調整色相 角度 */
+  height: #80ff00;
+  /* hsl 提高飽和度 */
+  width: #0a5c0a;
+  /* hsl 降低飽和度 */
+  white-space: #293d29; }
+
+.hsla {
+  /* 降低不透明度 0.6 */
+  width: rgba(64, 191, 128, 0.9);
+  /* 增加不透明度 0.2 */
+  height: rgba(64, 191, 128, 0.2); }
+
+.border {
+  border: 1px, solid, red;
+  width: px; }
+
+/* map $obj: ( key:value, key:value ) */
+.map {
+  color: red;
+  background-color: aka, aoi;
+  padding-bottom: red, blue;
+  padding-right: true;
+  padding-left: aka, aoi, midori;
+  padding-top: midori; }
+
+/* # {} interpolation */
+.alert-info {
+  border-color: red; }
+
+/* @if ($a > $b) { color: red } */
+.if {
+  background-color: skyblue; }
+
+/* @for ($i from 1 through $cols) */
+cols-1 {
+  width: 25%; }
+
+cols-2 {
+  width: 50%; }
+
+cols-3 {
+  width: 75%; }
+
+/* @each $item in $list */
+.num-1 {
+  background-image: url(../images/1); }
+
+.num-2 {
+  background-image: url(../images/2); }
+
+.num-3 {
+  background-image: url(../images/3); }
+
+.num-4 {
+  background-image: url(../images/4); }
+
+/* @while () {} */
+a-3 {
+  padding: 0; }
+
+a-2 {
+  padding: 0; }
+
+a-1 {
+  padding: 0; }
+
+/* function  () */
+.func {
+  color: blue; }
+
+/*# sourceMappingURL=scss.css.map */

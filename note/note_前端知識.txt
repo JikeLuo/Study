@@ -1,0 +1,104 @@
+z-index: 數值 (提高位置的層級
+opacity: 0.0-1.0 (透明度
+overflow: hidden (遮色片
+
+置中:	position: fixed;
+            	top: 10%;
+            	left: 50%;
+            	transform: translate(-50%, -50%);
+
+<meta name = "viewport" content = "width = device-width , user-scalable = no, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0"  >
+
+backbround-size: 長, 寬 / cover ( 覆蓋整盒子 / contain ( 符合長寬任一 
+
+最小寬度320px
+ul {
+    margin: 0;
+    padding: 0;
+} ( 去除前端空白之處
+
+background: linear-gradient (to right, #0000, #0000) (漸層
+object-fit: cover;
+
+
+
+-wibkit-box-sizing:
+box-sizing: border-box; ( 不變長寬長度
+box-sizing: content-box; ( 傳統盒模型
+
+-webkit-highlight-color: transparent; ( 取消點擊高亮的顏色
+-webkit-appearance: none; ( 取消特殊外表
+img, a { -webkit-touch-callout: none; } ( 長按不跳出菜單 
+
+
+offsetWidth 包含邊框
+clientWidth 不包含邊框
+
+
+<script scr: "script.js" defer></script> (與之相對還有sync 加載完全html再執行
+(sync 為收到請求停止加載HTML先執行再繼續加載HTML
+
+
+JSON.stringify()
+JSON.
+Window PowerShell
+
+Ajax & Json
+方法類型 get post
+數據類型 {
+1. url
+2. 請求頭
+3. 空
+4. 請求體
+}
+url parameter 在 url 的參數
+headers 請求頭的參數
+data 請求體的參數
+
+
+
+
+學習路線
+
+(V) Javascript進階
+了解JQuery (稍微
+RWD網站
+SASS/SCSS 
+Bootstrap
+AJAX/JSON
+Node.js
+(V) Git/Github
+
+============git bash 指令=============
+git status
+git add
+git commit --m "note" <file name>
+git restore --staged <file name>
+git reflog ( 簡短日誌
+git log ( 完整日誌
+
+git branch <branch name> ( 創建分支
+git branch -v ( 查看現有分支
+git checkout <branch name> ( 切換分支
+git merge <branch name> ( 合併分支
+
+git remote -v ( 查看遠端的資訊
+git remote add <remote name> <url> ( 新增遠端網址
+git push <remote name> <branch name> ( 推送此分支到Github
+git pull <remote name> <branch name> ( Github 拉回本地
+
+==========我的電腦指令=============
+fn + ctrl + insert (複製 我的筆電
+fn + shift + insert (貼上 
+
+
+==========Linus指令=================
+vim <file name> ( 創建/修改 文件
+cat <file name> ( 觀看當前文件
+ll ( 查看總文件
+
+esc ( enter normal mode
+:wq ( 保存
+yy ( 複製
+p (貼上
+(普通模式 i 進入編輯模式

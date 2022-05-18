@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var a = 10;
+        a++; //a=11
+        var b = a++ + 2; //先返回後自加, a=11 a+2返回b值為13,a再自加1,所以b不等於14
+        console.log(a);
+        console.log(b);
+        console.log(18 == '18'); //true
+        console.log(18 === '18'); //false 要完全一致
+        console.log('--------------邏輯中斷--------------')
+        // 0為false 除外都是true
+        console.log(123 && 456) // 前true 返回後項 456
+        console.log(0 && 456) // 前false 返回前項 0
+    </script>
+</head>
+<body>
+
+</body>
+</html>

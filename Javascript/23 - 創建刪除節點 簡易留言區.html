@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            resize: none;
+        }
+
+        div {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        li {
+            height: 25px;
+            background-color: skyblue;
+            margin: 10px;
+        }
+
+        a {
+            float: right;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div>
+    <button class="del">刪除</button>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+
+    <textarea name="" id="" cols="40" rows="10" placeholder="請輸入內容"></textarea>
+    <button class="butt">送出</button>
+
+    <ul>
+        <li>還沒DOM連接的
+            <a href="javascript:;">刪除是無法使用嗎?</a>
+        </li>
+    </ul>
+</div>
+
+
+<script>
+    var area = document.querySelector('textarea');
+    var button = document.querySelector('.butt');
+    var ul = document.querySelector('ul');
+    var ol = document.querySelector('ol');
+    var del = document.querySelector('.del');
+
+    button.onclick = function () {
+        if (area.value == '') {
+            alert('輸入不能為空')
+        } else {
+            // 1. 創建元素(li) document.createElement(type)
+            var createLi = document.createElement('li');
+            // 2. 讓文本框內的value(也就是內文)附值 給 li的內文(innerHTML)
+            createLi.innerHTML = area.value + "<a href='javascript:;'>刪除</a>";
+            // 3. 附值在末端 node.appendChild(child)
+            ul.appendChild(createLi);
+
+            var delParentNode = document.querySelectorAll('a')
+            // 因為<a> 是新創的，寫在外面無法連接節點
+            for (var i = 0; i < delParentNode.length; i++) {
+                delParentNode[i].onclick = function () {
+                    ul.removeChild(this.parentNode);
+                }
+            }
+        }
+        area.value = '';
+        area.onfocus;
+    }
+
+
+    // 插入前方元素 誰要被.insertBefore(誰?, 插在誰哪裡?)
+    var insertLi = document.createElement('li');
+    insertLi.innerHTML = '插在前面了';
+    ol.insertBefore(insertLi, ol.children[1]);
+
+    // 刪除節點  誰要被.removeChild(要對誰?)
+    del.onclick = function () {
+        ol.removeChild(ol.children[0]);
+        if (ol.children.length == 0) {
+            del.disabled = true;
+        }
+    }
+
+
+
+
+
+
+    // var ul = document.querySelector('ul');
+    // // 創建新節點
+    // var lii = document.createElement('li');
+    // // 插入節點
+    // ul.appendChild(lii);
+    // // 前端插入節點
+    // var lli = document.createElement('li');
+    // ul.insertBefore(lli, ul.children[0]); // (插入元素, 插入位置)
+
+</script>
+
+</body>
+</html>

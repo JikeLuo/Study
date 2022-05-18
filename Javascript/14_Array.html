@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var arr = [1, 2, 3, 4];
+        // arr 是實例 數組 嗎?
+        console.log(arr instanceof Array); // instance (實例: 任何時候基於某種模型的一個新的東西被創建後，都可以說該模型已經被實例化，和相同的資料有相同的資料結構
+        // 數組.是數組(arr) 嗎?
+        console.log(Array.isArray(arr));
+        console.log(arr);
+
+
+        // arr.push() 增加數組在後頭 返回數組長度
+        console.log(arr.push(55, 'dick'));
+        console.log(arr);
+        // arr.pop() 刪除最後的值 返回刪除值
+        console.log(arr.pop());
+        console.log(arr);
+
+
+        // arr.unshift() 增加數組在前頭 返回數組長度
+        console.log(arr.unshift('first', 'second'));
+        console.log(arr);
+        // arr.shift() 刪除第一值 返回刪除值
+        console.log(arr.shift());
+        console.log(arr);
+
+
+        // arr.reverse() 顛倒數組
+        console.log(arr.reverse());
+        // arr.sort() 排序數組
+        var arr0 = [5, 26, 345, 6, 1, 8, 79, 0, 55, 96, 452];
+        arr0.sort(function (a, b) { // 固定的寫法
+            return a - b; // 顛倒就 b - a
+        })
+        console.log(arr0);
+
+
+        // arr.indexOf(數據) 查找數組數據 返回索引值 無:-1
+        console.log(arr.indexOf(0));
+        // arr.lastIndexOf(數據) 顛倒
+        console.log(arr.lastIndexOf(55));
+
+
+        var arr1 = ['x', 'a', 'f', 'b', 'x', 'a', 'b', 'k', 'f', 'l'];
+        var newArr1 = [];
+        for (var i = 0; i < arr1.length; i++) {
+            if (newArr1.indexOf(arr1[i]) == -1) {
+                newArr1.push(arr1[i]);
+            }
+        }
+        console.log(newArr1);
+        console.log('------------------')
+
+
+        // arr.splice(x, y, '0','1') 拼貼
+        var arr2 = [0, 1, 2, 3, 4, 5]; // x值(位置) y值(替換數量) '0'&'0'(輸入的數據)
+        arr2.splice(1, 3, 'splice', 'newOne'); // 預期 [0, 'splice', 'newOne', 4, 5]
+        console.log(arr2);
+
+
+        // 目標: 查找a的數量和位置
+        var str = 'fahlahjaljhahjlhlajklahlahjlhaaahlaaljlaa';
+        var num = 0;
+        var index = str.indexOf('a');
+        while (index != -1) {
+            num++;
+            console.log(index);
+            index = str.indexOf('a', index + 1);
+        }
+
+
+        console.log('str裡共有: ' + num + ' 個a');
+        // 尋找str[索引] 值是什麼
+        console.log(str[0]);
+        // 尋找str.charAt(索引) 是什麼
+        console.log(str.charAt(1));
+        // 尋找str.charAt(索引) ASCII是什麼
+        console.log(str.charCodeAt(1));
+
+        console.log('------------------------------')
+
+        // arr.join & arr.split
+        var arr10 = ['one', 'two', 'three', 'four', 'five'];
+        console.log(arr10.join('&'));
+        console.log(arr10);
+        var str1 = 'blue&yellow&green&red';
+        console.log(str1.split('&'));
+        console.log(str1);
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

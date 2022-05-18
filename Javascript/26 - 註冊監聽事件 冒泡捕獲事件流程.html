@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            font-family: 微軟正黑體;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin-top: 10px;
+        }
+
+        .father {
+            margin: 200px auto;
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: lightgrey;
+        }
+        .son {
+            color: white;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            margin: 200px auto;
+            position: absolute;
+            top: -100px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+<div class="father">
+    <div class="son">SON</div>
+</div>
+
+<div>addEventListener無限次點擊</div>
+<div>onClick點一次後停止</div>
+<div>addEventListener點一次後停止</div>
+
+<script>
+    var div = document.querySelectorAll('div');
+
+    // 目標對象.addEventListener('點擊/滑鼠', 作用函數)
+    div[0].addEventListener('click', function () {
+        alert('GG');
+    })
+
+    div[1].onclick = function () {
+        alert('MM');
+        div[1].onclick = null; // onClick取消事件
+    }
+
+    div[2].addEventListener('click', newFn)
+    function newFn() {
+        alert('AA');
+        // 目標對象.removeEventListener('取消什麼', 取消誰?)
+        div[2].removeEventListener('click', newFn)
+    }
+
+
+
+    var father = document.querySelector('.father')
+    var son = document.querySelector('.son')
+
+    function fnSon() {
+        alert('son');
+    }
+
+    function fnFather() {
+        alert('father');
+    }
+    // true為捕獲 document -> html -> body -> father -> son
+    // false為冒泡 son -> father -> body -> html -> document
+    son.addEventListener('click', fnSon , false)
+    father.addEventListener('click', fnFather , false)
+</script>
+
+</body>
+</html>

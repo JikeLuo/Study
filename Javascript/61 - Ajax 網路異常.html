@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<button>現在網路有點問題喔</button>
+<div class="div"></div>
+<script>
+    const btn = document.getElementsByTagName('button')[0]
+    const div = document.querySelector('.div')
+
+
+    btn.onclick = function () {
+        const xhr = new XMLHttpRequest();
+
+        // 網路超時
+        xhr.timeout = 2000;
+        // 超時啟動的函數
+        xhr.ontimeout = function () {
+            alert('網路已超時連線')
+        }
+        // 網路異常
+        xhr.onerror = function () {
+            alert('你的網路有點問題')
+        }
+
+
+        xhr.open('get', 'http://127.0.0.1:8000/delay')
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    div.innerHTML = xhr.response;
+                }
+            }
+
+        }
+    }
+
+
+</script>
+</body>
+</html>

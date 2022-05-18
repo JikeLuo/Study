@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 700px;
+            height: 70px;
+            margin: 200px auto;
+            color: white;
+            font: bold 30px/70px 微軟正黑體;
+            text-align: center;
+            background-color: darkslategray;
+        }
+
+    </style>
+</head>
+<body>
+<div></div>
+
+</body>
+<script>
+    var names = location.search.substr(1) // ?username=ad substr(X,Y)為從X開始Y結束擷取
+    var names = names.split('=') // split('=')可拆分為數組 以=為間格
+
+    var div = document.querySelector('div')
+    div.innerHTML = names[1] + '歡迎光臨';
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-family: 微軟正黑體;
+        }
+
+        .mainBox {
+
+            margin: 200px auto;
+        }
+
+        .nav {
+            background-color: #ececec;
+            width: 800px;
+            height: 50px;
+            margin: 200px auto 0;
+        }
+
+        .nav li {
+            float: left;
+            line-height: 50px;
+            padding: 0 30px;
+            cursor: pointer;
+        }
+
+        .nav li:hover {
+            background-color: #c8151f;
+            color: white;
+        }
+
+        .tab {
+            width: 800px;
+            height: 20px;
+            margin: 0px auto;
+        }
+        .tab div {
+            display: none;
+        }
+
+        .selected {
+            color: white;
+            background-color: #c8151f;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="mainBox">
+    <div class="nav">
+        <ul>
+            <li>產品介紹</li>
+            <li>規格包裝</li>
+            <li>售後服務</li>
+            <li>商品評價</li>
+            <li>社群中心</li>
+        </ul>
+    </div>
+    <div class="tab">
+        <div>產品介紹內文</div>
+        <div>規格詳細內文</div>
+        <div>售後服務須知</div>
+        <div>商品評價內文</div>
+        <div>社群中心內容</div>
+    </div>
+</div>
+
+<script>
+    var ul = document.querySelector('ul');
+    var li = ul.querySelectorAll('li');
+    var tab = document.querySelector('.tab');
+    var text = tab.children;
+
+    // 循環讓全選項有onclick
+    for (var i = 0; i < li.length; i++) {
+        li[i].setAttribute('index', i);
+        li[i].onclick = function () {
+            for (var j = 0; j < li.length; j++) {
+                li[j].className = '';
+            }
+            this.className = 'selected';
+            var index = this.getAttribute('index');
+            for (var j = 0; j < text.length; j++) {
+                text[j].style.display = 'none';
+            }
+            text[index].style.display = 'block';
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

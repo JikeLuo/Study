@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .blank {
+            height: 100px;
+        }
+
+        .red {
+            width: 200px;
+            height: 200px;
+            border: 10px solid red;
+            padding: 10px;
+            margin: 10px;
+
+        }
+
+        table,
+        th,
+        td {
+            border: 3px solid #1f1e33;
+            /* 合併相邊框的樣式 */
+            border-collapse: collapse;
+            text-align: center;
+            width: 600px;
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>排名</th>
+        <th>關鍵字</th>
+        <th>趨勢</th>
+        <th>今日搜索</th>
+        <th>最近七日</th>
+        <th>連接</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>電鋸人</td>
+        <td><img src="images/003.jpg" width="80"></td>
+        <td>12</td>
+        <td>72</td>
+        <td><a href="http://google.com">google</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>鬼滅之刃</td>
+        <td>1</td>
+        <td>523</td>
+        <td>27</td>
+        <td><a href="http://google.com">google</a></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>刀劍神諭</td>
+        <td>1</td>
+        <td>52</td>
+        <td>574</td>
+        <td><a href="http://google.com">google</a></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>加速世界</td>
+        <td>-1</td>
+        <td>23</td>
+        <td>52</td>
+        <td><a href="http://google.com">google</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="blank"></div>
+<div class="red"> 今天天氣晴，我出去捕獵VT屯</div>
+
+
+
+
+
+    <div class="blank"></div>
+
+    <h2>實際案例</h2>
+    <h2>thead tbody 是指示性，讓表格看起來更清楚</h2>
+
+
+    <h3>tr = table row(排), td = table data</h3>
+    <table>
+        <tr>
+            <td>姓名</td>
+            <td>性別</td>
+            <td>年齡</td>
+        </tr>
+        <tr>
+            <td>翰荃</td>
+            <td>男性</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>中性</td>
+            <td>52</td>
+        </tr>
+        <tr>
+            <td>小美</td>
+            <td>女性</td>
+            <td>77</td>
+        </tr>
+    </table>
+
+
+    <div class="blank"></div>
+
+    <div>
+        <h4>th=table head, align 對其(左中右), border 邊框</h4>
+        <h4>cellpadding 空格距離, cellspacing 單元格邊框距離</h4>
+    </div>
+
+
+    <table align="center" border="5" cellpadding="20" cellspacing="5" width="500" height="500">
+        <tr>
+            <th>姓名</th>
+            <th>性別</th>
+            <th>年齡</th>
+        </tr>
+        <tr>
+            <td>翰荃</td>
+            <td>男性</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>中性</td>
+            <td>52</td>
+        </tr>
+        <tr>
+            <td>小美</td>
+            <td>女性</td>
+            <td>77</td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

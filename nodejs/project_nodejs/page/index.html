@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+<input type="text" id="username" placeholder="請輸入帳號"><br>
+<input type="text" id="password" placeholder="請輸入密碼">
+<button>登錄</button>
+
+</body>
+<script>
+    const uname = document.getElementById('username')
+    const pw = document.getElementById('password')
+    const btn = document.querySelector('button')
+
+    // axios.defaults.baseUrl = 'localhost:8000'
+    //
+    // btn.onclick = function () {
+    //     axios.post('/demo', {
+    //         data: {
+    //             a:20,
+    //             b: 30
+    //         }
+    //     })
+    //     .then((value) => {
+    //         console.log(value)
+    //     })
+    // }
+
+    btn.onclick = function () {
+        const xhr = new XMLHttpRequest()
+        xhr.open('post', 'http://127.0.0.1:8000/demo')
+        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        xhr.setRequestHeader('Content-Type', 'application/json')
+        const body = {a:20, b:30}
+        // xhr.send(`username=${uname.innerHTML}&password=${pw.innerHTML}`)
+        xhr.send(JSON.stringify(body))
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(xhr.response)
+                }
+            }
+        }
+    }
+
+
+
+</script>
+</html>
